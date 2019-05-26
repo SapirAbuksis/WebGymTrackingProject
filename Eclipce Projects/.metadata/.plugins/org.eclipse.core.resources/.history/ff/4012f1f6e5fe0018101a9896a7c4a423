@@ -1,0 +1,8 @@
+package com.hibernatedao.gymtracking;
+
+public class Snippet {
+	public static void main(String[] args) {
+		com.hibernatedao.gymtracking
+	}
+}
+

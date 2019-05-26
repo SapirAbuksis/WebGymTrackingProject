@@ -1,0 +1,11 @@
+package com.hibernatedao.gymtracking;
+
+import java.sql.SQLException;
+
+public class HibernateTestUnit {
+	
+	public static void main(String[] args) throws SQLException {
+		
+	}
+
+}

@@ -1,0 +1,143 @@
+package com.hibernatedao.gymtracking;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+public class HibernateGymDAO implements IGymDAO {
+	
+	private static HibernateGymDAO instance = null;
+	
+	private HibernateGymDAO() {
+		
+	}
+	
+	public static synchronized HibernateGymDAO getInstance() {
+		if (instance == null) {
+		instance = new HibernateGymDAO();
+		}
+	return instance;
+	}
+
+	@Override
+	public void addUser(User user) throws SQLException {
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			session.beginTransaction();
+			session.save(user);
+			session.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error - failed adding", JOptionPane.OK_OPTION);
+		} finally {
+			if (session != null && session.isOpen()) {
+
+				session.close();
+			}
+		}
+		
+	}
+
+	@Override
+	public void deleteUserById(Long id) throws SQLException {
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			session.beginTransaction();
+			Query query = session.createQuery("delete User where Id = :id");
+			query.setParameter("id", id);
+			int result = query.executeUpdate();
+			session.getTransaction().commit();
+
+		} catch (Exception e) {
+
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error - failed deleting", JOptionPane.OK_OPTION);
+		} finally {
+			if (session != null && session.isOpen()) {
+
+				session.close();
+			}
+		}
+		
+	}
+
+	@Override
+	public Collection getAllUsers() throws SQLException {
+		Session session = null;
+		List users = new ArrayList<User>();
+		try{
+			session = HibernateUtil.getSessionFactory().openSession();
+			Query query = session.createQuery("from User");
+			users =session.createCriteria(User.class).list();
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error - failed get all user", JOptionPane.OK_OPTION);
+		}finally {
+			if(session != null && session.isOpen()){
+				session.close();
+			}
+		}
+		return users;
+	}
+
+	@Override
+	public User getUserById(Long id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addActivity(Activity activitys) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateActivityByActivityId(int activityId, Activity activity) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteActivityByActivityId(int activityId) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Collection getAllActivitys() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Activity getActivityByActivityId(Long activityId) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection getAllActivitysOfUser(Long userId) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User checkUserAccount(User user) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
+	
+
+}

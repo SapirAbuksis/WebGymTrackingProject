@@ -1,0 +1,23 @@
+package com.hibernatedao.gymtracking;
+
+import java.sql.SQLException;
+import java.util.Collection;
+
+public interface IGymDAO {
+	
+	//Define methods for User database
+	public void addUser(User user) throws SQLException;
+	public void deleteUserById(Long id) throws SQLException;
+	public User getUserByUserId(Long id)throws SQLException;
+	public Collection getAllUsers()throws SQLException;
+	
+	//Define methods for Activity database
+	public void addActivity(Activity activity) throws SQLException;
+	public void updateActivityByActivityId(int activityId, Activity activity) throws SQLException;
+	public void deleteActivityByActivityId(int activityId) throws SQLException;
+	public Activity getActivityByActivityId(Long activityId) throws SQLException;
+	public Collection getAllActivitysOfUser(Long userId) throws SQLException;
+	public Collection  getAllActivitys() throws SQLException;
+	public User checkUserAccount(User user) throws SQLException; 
+
+}
