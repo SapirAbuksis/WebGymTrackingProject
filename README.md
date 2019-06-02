@@ -1,6 +1,10 @@
 gymTracking web applictaion is a project that we wrote in java.
 This web application implements the MVC, architecture with Hibernate Database.
 
+Here you can find a summary of our project:
+Web: https://www.youtube.com/watch?v=WRMBhrAfDK0&t=29s
+Mobile: https://www.youtube.com/watch?v=hHROKzOWZ5s&t=11s
+
 <h1> WHAT CAN WE DO IN THIS APP? </H1>
 Login.
 <br>
