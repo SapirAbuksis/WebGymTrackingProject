@@ -1,5 +1,6 @@
-gymTracking web applictaion is a project that we wrote in java.
-This web application implements the MVC, architecture with Hibernate Database.
+Building a gymTracking Web & Mobile application, using Java and HTML on a both (Server and Client) sides based on MVC.
+Solution is based on a Hibernate framework using MySQL Data Source in Apache Tomcat Servlets. The interface is
+designed using JQuery, AJAX, JavaScript, Bootstrap, JSP, HTML, and CSS.
 
 Here you can find a summary of our project: <br>
 Web: https://www.youtube.com/watch?v=WRMBhrAfDK0&t=29s <br>
